@@ -24,8 +24,9 @@
     "cssnano": "^3.7.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
-    "gulp-cssnext": "^1.0.1",
     "gulp-postcss": "^6.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
     "postcss-mixins": "^5.0.0",
     "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^3.0.0"

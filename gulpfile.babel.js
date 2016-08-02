@@ -1,11 +1,11 @@
 import gulp from 'gulp';
 import postcss from 'gulp-postcss';
-import cssnext from 'gulp-cssnext';
 import cssnano from 'cssnano';
 import sourcemaps from 'gulp-sourcemaps';
 import babel from 'gulp-babel';
 import uglify from 'gulp-uglify';
 import sync from 'browser-sync';
+import autoprefixer from 'autoprefixer';
 
 gulp.task('server', () => {
   return sync({
@@ -25,13 +25,11 @@ gulp.task('css', () => {
   return gulp.src('./src/cssnext/*.css')
     .pipe( sourcemaps.init())
     .pipe(postcss([
+      autoprefixer(),
       require('postcss-mixins'),
       require('postcss-nested'),
       require('postcss-simple-vars'),
       require('cssnano')
-    ]))
-    .pipe(cssnext([
-      require('cssnext'),
     ]))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/css'));
