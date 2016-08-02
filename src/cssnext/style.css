@@ -1,0 +1,33 @@
+:root {
+  --bg-color: #eee;
+  --font-stack:18px  Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+html,
+body,
+div,
+header,
+section,
+footer,
+h1,
+h3,
+img,
+a,
+dl,
+dd,
+dt,
+ul,
+li,
+p,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  background-color: var(--bg-color);
+  color: #222;
+  font: var(--font-stack);
+  transition: transform 4s ease-out;
+}
