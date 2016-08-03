@@ -29,7 +29,6 @@ body {
   background-color: var(--bg-color);
   color: #222;
   font: var(--font-stack);
-  transition: transform 4s ease-out;
 }
 
 .tabs {
@@ -38,42 +37,30 @@ body {
   width: 80%;
 }
 
-.tabs input {
+.tablist {
+  list-style: none;
+  letter-spacing: -1em;
+}
+
+li {
+  display: inline-block;
+}
+
+.tab {
   position: absolute;
   z-index: 1000;
   width: 120px;
   height: 40px;
   left: 0px;
   top: 0px;
-  opacity: 0;
   cursor: pointer;
-}
-
-.tabs input#tab-2{
-  left: 120px;
-}
-
-.tabs input#tab-3{
-  left: 240px;
-}
-
-.tabs input#tab-4{
-  left: 360px;
-}
-
-.tabs label {
-  background: #5ba4a4;
-  background: linear-gradient(top, #5ba4a4 0%,#4e8c8a 100%);
+  background: #eee;
+  background: linear-gradient(to top, #eee 0%,#ccc 100%);
   font-size: 15px;
   line-height: 40px;
   height: 40px;
   position: relative;
-  padding: 0 20px;
-  float: left;
-  display: block;
-  width: 80px;
-  color: #385c5b;
-  top: 0px;
+  display: inline-block;
   letter-spacing: 1px;
   font-weight: bold;
   text-align: center;
@@ -82,7 +69,7 @@ body {
   box-shadow: 2px 0 2px rgba(0,0,0,0.1), -2px 0 2px rgba(0,0,0,0.1);
 }
 
-.tabs label:after {
+.tab:after {
   content: '';
   background: #fff;
   position: absolute;
@@ -93,84 +80,64 @@ body {
   display: block;
 }
 
-.tabs input:hover + label {
-  background: #5ba4a4;
+.tab:hover {
+  background: #9cc8dc;
   top: -8px;
   transition: top linear 0.2s;
+  box-shadow: none;
 }
 
-.tabs input:hover + label:after{
-  background: #5ba4a4;
+.tab:hover:after {
+  background: #9cc8dc;
 }
 
-.tabs input:hover + label ~ .clear-shadow {
-  top: -8px;
-  transition: top linear 0.2s;
+.tab:focus {
+  outline: 0;
+  border: 1px dotted;
 }
 
-.tabs input:checked:hover + label {
+.tab:focus,
+.tab:focus:after,
+.tab:focus:hover,
+.tab:focus:hover:after,
+[aria-selected='true']:focus,
+[aria-selected='true']:after,
+[aria-selected='true']:hover,
+[aria-selected='true']:focus:after,
+[aria-selected='true']:hover:after {
+  background: #fff;
   top: 0;
 }
 
-.tabs input:checked:hover + label:after{
-  background: #fff;
-}
-
-.tabs input:checked:hover + label ~ .clear-shadow {
-  top: 0;
-  background: #fff;
-  transition: none;
-}
-
-.tabs input.tab-selector-1:hover + label.tab-label-1 ~ .clear-shadow{
-  z-index: 3;
-}
-
-.tabs input.tab-selector-2:hover + label.tab-label-2 ~ .clear-shadow {
-  z-index: 2;
-}
-
-.tabs input.tab-selector-3:hover + label.tab-label-3 ~ .clear-shadow {
-  z-index: 1;
-}
-
-.tabs input.tab-selector-4:hover + label.tab-label-4 ~ .clear-shadow {
-  z-index: 0;
-}
-
-.tabs label:first-of-type {
+.tablist li:first-of-type a {
   z-index: 4;
   box-shadow: 2px 0 2px rgba(0,0,0,0.1);
 }
 
-.tab-label-2 {
+#tab2 {
   z-index: 3;
 }
 
-.tab-label-3 {
+#tab3 {
   z-index: 2;
 }
 
-.tab-label-4 {
+#tab4 {
   z-index: 1;
 }
 
-.tabs input:checked + label {
+.tab:focus,
+[aria-selected='true'] {
   background: #fff;
   z-index: 6;
   transition: top linear 0.2s;
 }
 
-.clear-shadow {
-  background: #5ba4a4;
-  position: relative;
-  top: 0;
-  height: 10px;
-  margin-bottom: -10px;
-  clear: both;
-  z-index: -2;
-  box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2);
-  border-radius: 3px;
+a[role='tab'] {
+  display: block;
+  padding: 0 20px;
+  color: #385c5b;
+  text-decoration: none;
 }
 
 .content {
@@ -183,38 +150,35 @@ body {
   box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
   border-radius: 0 3px 3px 3px;
 }
-
 .content div {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 100%;
   padding: 10px 40px;
-  overflow: hidden;
   z-index: 1;
-  opacity: 0;
   transition: all linear 0.1s;
 }
 
-.tabs input.tab-selector-1:checked ~ .content .content-1,
-.tabs input.tab-selector-2:checked ~ .content .content-2,
-.tabs input.tab-selector-3:checked ~ .content .content-3,
-.tabs input.tab-selector-4:checked ~ .content .content-4 {
+[role="tabpanel"] {
   bottom: 0px;
   z-index: 100;
   opacity: 1;
-  // transition: all ease-out 0.2s 0.2s;
+  transition: all ease-out 0.2s 0.2s;
 }
 
-.content div h2,
-.content div h3{
+[role="tabpanel"][aria-hidden="true"] {
+  opacity: 0;
+}
+
+h2,
+h3 {
   color: #398080;
 }
 
-.content div p {
+p {
   font-size: 14px;
   line-height: 22px;
-  font-style: italic;
   text-align: left;
   margin: 0;
   color: #777;

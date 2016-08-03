@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import postcss from 'gulp-postcss';
+import cssnext from 'gulp-cssnext';
 import cssnano from 'cssnano';
 import sourcemaps from 'gulp-sourcemaps';
 import babel from 'gulp-babel';
@@ -31,6 +32,9 @@ gulp.task('css', () => {
       require('postcss-simple-vars'),
       require('cssnano')
     ]))
+    .pipe(cssnext([
+      require('cssnext'),
+    ]))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/css'));
 });
@@ -46,7 +50,7 @@ gulp.task('babel', () => {
 
 gulp.task('w', ['build', 'server'], () => {
   gulp.watch('./src/cssnext/*.css', ['css']);
-  gulp.watch('./src/**/*.es6', ['babel']);
+  gulp.watch('./src/js/*.es6', ['babel']);
   gulp.watch('./*.html', ['reload']);
   gulp.watch('./dist/**/**.css', ['reload']);
   return gulp.watch('./dist/**/*.js', ['reload']);
