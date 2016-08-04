@@ -15,29 +15,52 @@
 
   <div class="tabs">
     <ul class="tablist" role="tablist">
-      <li role="presentation"><a href="#section1" id="tab1" class="tab" role="tab" tabindex="0" aria-controls="section1" aria-selected="true" tabindex="0">Section 1</a></li>
-      <li role="presentation"><a href="#section2" id="tab2" class="tab" role="tab" tabindex="-1" aria-controls="section2">Section 2</a></li>
-      <li role="presentation"><a href="#section3" id="tab3" class="tab" role="tab" tabindex="-1" aria-controls="section3">Section 3</a></li>
+      <li role="presentation"><a href="#section1" id="tab1" class="tab" role="tab" tabindex="0" aria-controls="section1" aria-selected="true" tabindex="0">Home</a></li>
+      <li role="presentation"><a href="#section2" id="tab2" class="tab" role="tab" tabindex="-1" aria-controls="section2">About</a></li>
+      <li role="presentation"><a href="#section3" id="tab3" class="tab" role="tab" tabindex="-1" aria-controls="section3">Contact</a></li>
       <li role="presentation"><a href="#section4" id="tab4" class="tab" role="tab" tabindex="-1" aria-controls="section4">Section 4</a></li>
     </ul>
 
     <div class="content">
+
       <div id="section1" class="panel" aria-labelledby="tab1" role="tabpanel">
-        <h3>Tab1中身</h3>
-        <p>Tab1ああああああああああああああああああああ</p>
+        <h3>Home</h3>
+        <p>タブ UI を実装してみました。<br>要件は下記</p>
+        <ul>
+          <li>not レスポンシブ</li>
+          <li>Internet Explorer: 9+</li>
+          <li>WAI-ARIA 対応で、キーボード操作が可能であること</li>
+          <li>PostCSS</li>
+        </ul>
+        <p>not レスポンシブなのはスマホでタブ切り替えの UI を実装するのはあまり気乗りしないためです。</p>
+        <p>transform, transition をなるべく試していきたいんですけど、割と現実的なブラウザ対応を取ることにしました。</p>
+        <p>WAI-ARIA はただただやってみたかったのです。JavaScript は Babel で実装できる環境を作りましたが、結局 jQuery でササッと。</p>
+        <p>PostCSS はやりましょうという気運。実際使ったのは nested と simple-vars</p>
+
       </div>
+
       <div id="section2" class="panel" aria-labelledby="tab2" role="tabpanel" aria-hidden="true">
-        <h3>Tab2中身</h3>
-        <p>Tab2いいいいいいいいいいいいいいいいいいいい</p>
+        <h3>About</h3>
+        <div class="profile" itemscope>
+          <img itemprop="image" alt="私が hrfmmymt だ" src="//pbs.twimg.com/profile_images/672293869120163840/7q4wxHvu.jpg" width="200">
+          <div class="description">
+            <p itemprop="name">Name : hrfmmymt</p>
+            <p itemprop="age">Age : 32</p>
+            <p itemprop="gender">Gender : Male</p>
+          </div>
+        </div>
       </div>
+
       <div id="section3" class="panel" aria-labelledby="tab3" role="tabpanel" aria-hidden="true">
-        <h3>Tab3中身</h3>
-        <p>Tab3うううううううううううううううううううう</p>
+        <h3>Contact</h3>
+        <a href="//hrfmmymt.github.io/" target="_blank">http://hrfmmymt.github.io</a>
       </div>
+
       <div id="section4" class="panel" aria-labelledby="tab4" role="tabpanel" aria-hidden="true">
-        <h3>Tab4中身</h3>
+        <h3>Tab4</h3>
         <p>Tab4えええええええええええええええええええええええ</p>
       </div>
+
     </div>
   </div>
 
