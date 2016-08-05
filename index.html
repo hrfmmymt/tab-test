@@ -2,12 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta name="author" content="Hirofumi Miyamoto">
-  <meta property="og:site_name" content="hrfmmymt">
-  <meta property="og:author" content="Hirofumi Miyamoto">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="hrfmmymt">
-  <meta property="og:description" content="hrfmmymt">
+  <meta name="description" content="Accessible tabs ui test.">
   <title>tab-test</title>
   <link rel="stylesheet" href="dist/css/style.css">
 </head>
@@ -23,8 +18,8 @@
 
     <div class="content">
 
-      <div id="section1" class="panel" aria-labelledby="tab1" role="tabpanel">
-        <h3>Home</h3>
+      <div id="section1" class="content__panel" aria-labelledby="tab1" role="tabpanel">
+        <h3 class="content__title">Home</h3>
         <p>タブ UI を実装してみました。<br>要件は下記</p>
         <ul>
           <li>not レスポンシブ</li>
@@ -32,18 +27,16 @@
           <li>WAI-ARIA 対応で、キーボード操作が可能であること</li>
           <li>PostCSS</li>
         </ul>
-        <p>not レスポンシブなのはスマホでタブ切り替えの UI を実装するのはあまり気乗りしないためです。</p>
-        <p>transform, transition をなるべく試していきたいんですけど、割と現実的なブラウザ対応を取ることにしました。</p>
-        <p>WAI-ARIA はただただやってみたかったのです。JavaScript は Babel で実装できる環境を作りましたが、結局 jQuery でササッと。</p>
-        <p>PostCSS はやりましょうという気運。実際使ったのは nested と simple-vars</p>
-
+        <p>なんとなく既存プロジェクトに導入できるような形にしてみたくて、割と現実的そうなブラウザ対応を取ることにしました。</p>
+        <p>WAI-ARIA は、やってみたかったのです。PC キーバインド設定するにあたっての JavaScript は Babel で実装できる環境まで作ったものの、結局 jQuery でササッと&#9786</p>
+        <p>PostCSS は、やりましょうという気運。実際使ったのは nested と simple-vars と calc.</p>
       </div>
 
-      <div id="section2" class="panel" aria-labelledby="tab2" role="tabpanel" aria-hidden="true">
-        <h3>About</h3>
-        <div class="profile" itemscope>
+      <div id="section2" class="content__panel" aria-labelledby="tab2" role="tabpanel" aria-hidden="true">
+        <h3 class="content__title">About</h3>
+        <div class="about" itemscope>
           <img itemprop="image" alt="私が hrfmmymt だ" src="//pbs.twimg.com/profile_images/672293869120163840/7q4wxHvu.jpg" width="200">
-          <div class="description">
+          <div class="about__description">
             <p itemprop="name">Name : hrfmmymt</p>
             <p itemprop="age">Age : 32</p>
             <p itemprop="gender">Gender : Male</p>
@@ -51,20 +44,25 @@
         </div>
       </div>
 
-      <div id="section3" class="panel" aria-labelledby="tab3" role="tabpanel" aria-hidden="true">
-        <h3>Contact</h3>
+      <div id="section3" class="content__panel" aria-labelledby="tab3" role="tabpanel" aria-hidden="true">
+        <h3 class="content__title">Contact</h3>
         <a href="//hrfmmymt.github.io/" target="_blank">http://hrfmmymt.github.io</a>
       </div>
 
-      <div id="section4" class="panel" aria-labelledby="tab4" role="tabpanel" aria-hidden="true">
-        <h3>Tab4</h3>
-        <p>Tab4えええええええええええええええええええええええ</p>
+      <div id="section4" class="content__panel" aria-labelledby="tab4" role="tabpanel" aria-hidden="true">
+        <h3 class="content__title">Tab4</h3>
+        <p>余ったアアアアアアア</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/CY5qE36_TtA" frameborder="0" allowfullscreen></iframe>
       </div>
 
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <footer>
+    <p>&copy; 2016 <a href="http://hrfmmymt.github.io/">hrfmmymt</a></p>
+  </footer>
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="dist/js/script.js"></script>
 </body>
 </html>

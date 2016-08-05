@@ -3,6 +3,7 @@
   --bg-color: #fff;
   --border-frame: 1px solid #333;
   --border-white: 1px solid #fff;
+  --std-px-amount: 20px;
 }
 
 html,
@@ -25,14 +26,14 @@ body {
   font: var(--font-stack);
 }
 
-/* tab area */
+/* tab container */
 .tabs {
   position: relative;
-  margin: 40px auto;
+  margin: calc(var(--std-px-amount) * 2) auto;
   width: 80%;
 }
 
-/* tab area ul */
+/* tab ul */
 .tablist {
   list-style: none;
   & li {
@@ -40,22 +41,22 @@ body {
   }
 }
 
-/* tab anchor button */
+/* tab button */
 .tab {
   display: block;
   position: relative;
   top: 1px;
   left: 0;
-  z-index: 10;
+  z-index: 4;
 
   width: 120px;
-  height: 40px;
+  height: calc(var(--std-px-amount) * 2);
   padding: 0 20px;
 
   font-size: 15px;
   font-weight: bold;
-  color: #385c5b;
-  line-height: 40px;
+  color: #648c8b;
+  line-height: calc(var(--std-px-amount) * 2);
   letter-spacing: 1px;
   text-align: center;
   text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
@@ -70,18 +71,15 @@ body {
   border-bottom: none;
   border-left: 1px solid #ccc;
 
-  cursor: pointer;
+  transition: background ease-in .2s;
 
   &:hover {
+    color: #385c5b;
     background: #9cc8dc;
-    transition: background linear 0.2s;
-  }
-
-  &:focus {
-    outline: 0;
   }
 
   &[aria-selected='true'] {
+    color: #385c5b;
     border-right: var(--border-frame);
     border-bottom: var(--border-white);
     border-left: var(--border-frame);
@@ -103,66 +101,90 @@ body {
   &:focus,
   &[aria-selected='true'] {
     background: var(--bg-color);
-    z-index: 6;
+    z-index: 3;
     transition: top linear .2s;
     border-top: 3px solid #385c5b;
     border-bottom: var(--border-white);
   }
 }
 
+/* tab switching contents */
 .content {
   position: relative;
   z-index: 1;
   overflow: auto;
 
   width: 100%;
-  min-height: 300px;
+  min-height: 400px;
 
   background: var(--bg-color);
   border: var(--border-frame);
   border-radius: 0 3px 3px 3px;
 
-  & div[role="tabpanel"] {
+  &__panel[role="tabpanel"] {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 2;
 
-    padding: 40px;
+    padding: calc(var(--std-px-amount) * 2);
 
     opacity: 1;
-    transition: opacity linear 0.1s;
+    visibility: visible;
+
+    transition: all linear 0.1s;
 
     &[aria-hidden="true"] {
       opacity: 0;
+      visibility: hidden;
     }
   }
 
-  & h2,
-  & h3 {
+  &__title {
     color: #398080;
-    margin-bottom: 20px;
+    margin-bottom: var(--std-px-amount);
   }
 
   & p,
-  & ul {
+  & ul,
+  & a {
     font-size: 14px;
     line-height: 22px;
     text-align: left;    
     color: #777;
-    font-family: Cambria, Georgia, serif;
+    font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
   }
 
   & ul {
-    padding-left: 20px;
+    padding-left: var(--std-px-amount);
+  }
+
+  & a {
+    transition: color linear .2s;
+    &:hover {
+      color: #000;
+    }
   }
 }
 
-.profile {
+/* about */
+.about {
   & img,
-  & .description {
+  &__description {
     display: inline-block;
     vertical-align: top;
   }
+
+  &__description {
+    margin-left: calc(var(--std-px-amount) * 3);
+  }
+}
+
+/* footer */
+footer {
+  margin: 0 auto;
+  padding: calc(var(--std-px-amount) * 3) 0;
+  font-size: 12px;
+  text-align: center;
 }

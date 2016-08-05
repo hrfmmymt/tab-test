@@ -27,9 +27,9 @@ gulp.task('css', () => {
     .pipe( sourcemaps.init())
     .pipe(postcss([
       autoprefixer(),
-      require('postcss-mixins'),
       require('postcss-nested'),
       require('postcss-simple-vars'),
+      require('postcss-calc'),
       require('cssnano')
     ]))
     .pipe(cssnext([
