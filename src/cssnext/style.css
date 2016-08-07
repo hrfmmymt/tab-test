@@ -1,5 +1,5 @@
 :root {
-  --font-stack: 18px  Futura,Trebuchet MS,Arial,sans-serif;
+  --font-stack: 16px  Futura,Trebuchet MS,Arial,sans-serif;
   --bg-color: #fff;
   --border-frame: 1px solid #333;
   --border-white: 1px solid #fff;
@@ -53,7 +53,7 @@ body {
   height: calc(var(--std-px-amount) * 2);
   padding: 0 20px;
 
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
   color: #648c8b;
   line-height: calc(var(--std-px-amount) * 2);
@@ -149,7 +149,7 @@ body {
   & p,
   & ul,
   & a {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 22px;
     text-align: left;    
     color: #777;
