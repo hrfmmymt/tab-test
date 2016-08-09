@@ -7,6 +7,7 @@ import babel from 'gulp-babel';
 import uglify from 'gulp-uglify';
 import sync from 'browser-sync';
 import autoprefixer from 'autoprefixer';
+import conventionalChangelog from 'gulp-conventional-changelog';
 
 gulp.task('server', () => {
   return sync({
@@ -46,6 +47,23 @@ gulp.task('babel', () => {
     }))
     .pipe(uglify({preserveComments: 'some'}))
     .pipe(gulp.dest('./dist/js/'))
+});
+
+gulp.task('changelog', function () {
+  return gulp.src('CHANGELOG.md')
+    .pipe(conventionalChangelog({
+      // conventional-changelog options go here
+      preset: 'angular'
+    }, {
+      // context goes here
+    }, {
+      // git-raw-commits options go here
+    }, {
+      // conventional-commits-parser options go here
+    }, {
+      // conventional-changelog-writer options go here
+    }))
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('w', ['build', 'server'], () => {
