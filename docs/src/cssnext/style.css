@@ -31,7 +31,8 @@ body {
   position: relative;
   margin: calc(var(--std-px-amount) * 2) auto;
   width: 80%;
-  &_list { // tab ul
+  /* tab ul */
+  &_list {
     list-style: none;
     & li {
       display: inline-block;

@@ -1,38 +1,6 @@
 $(() => {
 
-  /* 
-   * init settings
-   */
-
   const container = ".tabs";
-
-  $(container + "_list").attr("role", "tabs_list");
-  $(container + " [role='tabs_list'] li").attr("role", "presentation");
-  $("[role='tabs_list'] a").attr({
-    "tabindex" : "-1",
-    "role" : "tab"
-  });
-
-  $("[role='tabs_list'] a").each(function() {
-    $(this).attr("aria-controls", $(this).attr("href").substring(1));
-  });
-
-  $("[role='tabs_list'] li:first-child a").attr({
-    "tabindex" : 0,
-    "aria-selected" : true
-  });
-
-  $(container + " section").attr({
-    "role" : "tabpanel"
-  });
-
-  $(container + " section > *:first-child").attr({
-    "tabindex" : 0
-  });
-
-  $("[role='tabpanel']:not(:first-of-type)").attr({
-    "aria-hidden" : true
-  });
 
   /*
    * key down control
@@ -69,7 +37,7 @@ $(() => {
       }).focus();
     }
     $(container + " [role='tabpanel']").attr("aria-hidden", true);
-    $("#" + $(document.activeElement).attr("href").substring(1)).attr("aria-hidden", null);
+    $("#" + $(document.activeElement).attr("aria-controls")).attr("aria-hidden", null);
   });
 
   /*
@@ -87,7 +55,7 @@ $(() => {
       "aria-selected" : true
     });
     $(container + " [role='tabpanel']").attr("aria-hidden", true);
-    $("#" + $(this).attr("href").substring(1)).attr("aria-hidden", null);
+    $("#" + $(this).attr("aria-controls")).attr("aria-hidden", null);
   });
 
 });
