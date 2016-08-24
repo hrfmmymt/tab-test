@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import cssnext from 'gulp-cssnext';
 import cssnano from 'cssnano';
@@ -26,6 +27,12 @@ gulp.task('reload', () => {
 gulp.task('css', () => {
   return gulp.src('./src/cssnext/*.css')
     .pipe( sourcemaps.init())
+    .pipe(plumber({
+      errorHandler: function(err) {
+        console.log(err.messageFormatted);
+        this.emit('end');
+      }
+    }))
     .pipe(postcss([
       autoprefixer(),
       require('postcss-nested'),
@@ -42,6 +49,12 @@ gulp.task('css', () => {
 
 gulp.task('babel', () => {
   return gulp.src('./src/js/*.es6')
+    .pipe(plumber({
+      errorHandler: function(err) {
+        console.log(err.messageFormatted);
+        this.emit('end');
+      }
+    }))
     .pipe(babel({
       presets: ['es2015']
     }))
