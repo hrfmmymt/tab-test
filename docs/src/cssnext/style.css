@@ -31,13 +31,11 @@ body {
   position: relative;
   margin: calc(var(--std-px-amount) * 2) auto;
   width: 80%;
-}
-
-/* tab ul */
-.tablist {
-  list-style: none;
-  & li {
-    display: inline-block;
+  &_list { // tab ul
+    list-style: none;
+    & li {
+      display: inline-block;
+    }
   }
 }
 
