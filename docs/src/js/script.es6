@@ -1,10 +1,10 @@
-$(function() {
+$(() => {
 
   /* 
    * init settings
    */
 
-  var container = ".tabs";
+  const container = ".tabs";
 
   $(container + " ul").attr("role", "tablist");
   $(container + " [role='tablist'] li").attr("role", "presentation");
@@ -40,7 +40,7 @@ $(function() {
 
   $("[role='tab']").on("keydown", function(e) {
 
-    var el = $(this),
+    let el = $(this),
         tabPrev = $(this).parents("li").prev().children("[role='tab']"),
         tabNext = $(this).parents("li").next().children("[role='tab']"),
         tabTarget;
