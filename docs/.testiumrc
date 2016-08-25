@@ -1,5 +1,6 @@
 ; defaults to false, `npm start`s the app
 launch = true
+#browser = "chrome"
 
 [mocha]
 ; defaults to 20 seconds
