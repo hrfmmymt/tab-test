@@ -1,17 +1,17 @@
 $(() => {
 
   const container = ".tabs",
-        tab = $("[role='tab']");
+        tabs = $("[role='tab']");
 
   /*
    * key down control
    */
 
-  tab.on("keydown", function(e) {
+  tabs.on("keydown", function(e) {
 
     const el = $(this),
-          tabPrev = $(this).parents("li").prev().children("[role='tab']"),
-          tabNext = $(this).parents("li").next().children("[role='tab']");
+          tabPrev = $(this).parents("li").prev().children(tabs),
+          tabNext = $(this).parents("li").next().children(tabs);
 
     let tabTarget;
 
@@ -45,9 +45,9 @@ $(() => {
    * click tabs
    */
 
-  tab.on("click", function(e) {
+  tabs.on("click", function(e) {
     e.preventDefault();
-    tab.attr({
+    tabs.attr({
       "tabindex" : "-1",
       "aria-selected" : null
     });
@@ -60,3 +60,42 @@ $(() => {
   });
 
 });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const tabs = document.querySelectorAll("a[role='tab']");
+
+//   for(let i of tabs) {
+//     console.log(i);
+//     i.addEventListener("click", e => {
+//       console.log(e.target);
+//       e.preventDefault();
+//       i.setAttribute("tabindex", "-1");
+//       i.setAttribute("aria-selected", null);
+//       e.target.setAttribute("tabindex", 0);
+//       e.target.setAttribute("aria-selected", true);
+//     }, false);
+//   }
+
+  // for(let i = 0; i < tab.length; i++) {
+  //   tab[i].addEventListener("click", e => {
+  //     e.preventDefault();
+  //     tab[i].setAttribute("tabindex", "-1");
+  //     tab[i].setAttribute("aria-selected", null);
+  //     e.target.setAttribute("tabindex", 0);
+  //     e.target.setAttribute("aria-selected", true);
+  //   }, false);
+  // }
+
+  // tab.addEventListener("click", function(e) {
+  //   console.log(this);
+  //   e.preventDefault();
+  //   tab.setAttributes({
+  //     "tabindex" : "-1",
+  //     "aria-selected" : null
+  //   });
+  //   this.setAttributes({
+  //     "tabindex" : 0,
+  //     "aria-selected" : true
+  //   });
+  // });
+// });
