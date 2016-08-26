@@ -1,16 +1,17 @@
 $(() => {
 
-  const container = ".tabs";
+  const container = ".tabs",
+        tabs = $("[role='tab']");
 
   /*
    * key down control
    */
 
-  $("[role='tab']").on("keydown", function(e) {
+  tabs.on("keydown", function(e) {
 
     const el = $(this),
-          tabPrev = $(this).parents("li").prev().children("[role='tab']"),
-          tabNext = $(this).parents("li").next().children("[role='tab']");
+          tabPrev = $(this).parents("li").prev().children(tabs),
+          tabNext = $(this).parents("li").next().children(tabs);
 
     let tabTarget;
 
@@ -44,9 +45,9 @@ $(() => {
    * click tabs
    */
 
-  $("[role='tab']").on("click", function(e) {
+  tabs.on("click", function(e) {
     e.preventDefault();
-    $("[role='tab']").attr({
+    tabs.attr({
       "tabindex" : "-1",
       "aria-selected" : null
     });
