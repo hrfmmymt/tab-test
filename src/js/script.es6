@@ -1,12 +1,13 @@
 $(() => {
 
-  const container = ".tabs";
+  const container = ".tabs",
+        tab = $("[role='tab']");
 
   /*
    * key down control
    */
 
-  $("[role='tab']").on("keydown", function(e) {
+  tab.on("keydown", function(e) {
 
     const el = $(this),
           tabPrev = $(this).parents("li").prev().children("[role='tab']"),
@@ -44,9 +45,9 @@ $(() => {
    * click tabs
    */
 
-  $("[role='tab']").on("click", function(e) {
+  tab.on("click", function(e) {
     e.preventDefault();
-    $("[role='tab']").attr({
+    tab.attr({
       "tabindex" : "-1",
       "aria-selected" : null
     });
