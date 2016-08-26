@@ -28,7 +28,7 @@ gulp.task('css', () => {
   return gulp.src('./src/cssnext/*.css')
     .pipe( sourcemaps.init())
     .pipe(plumber({
-      errorHandler: function(err) {
+      errorHandler: err => {
         console.log(err.messageFormatted);
         this.emit('end');
       }
@@ -50,7 +50,7 @@ gulp.task('css', () => {
 gulp.task('babel', () => {
   return gulp.src('./src/js/*.es6')
     .pipe(plumber({
-      errorHandler: function(err) {
+      errorHandler: err => {
         console.log(err.messageFormatted);
         this.emit('end');
       }
@@ -62,7 +62,7 @@ gulp.task('babel', () => {
     .pipe(gulp.dest('./dist/js/'))
 });
 
-gulp.task('changelog', function () {
+gulp.task('changelog', () => {
   return gulp.src('CHANGELOG.md')
     .pipe(conventionalChangelog({
       preset: 'angular'
