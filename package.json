@@ -38,7 +38,6 @@
     "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^3.0.0",
     "power-assert": "^1.4.1",
-    "testium": "^3.3.1",
-    "webdriver-http-sync": "^2.2.1"
+    "testium": "^3.3.1"
   }
 }
