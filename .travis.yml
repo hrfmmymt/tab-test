@@ -4,7 +4,7 @@ node_js:
   - '0.10'
 before_install:
   - npm install -g npm@latest-2
-script: bash ./deploy-gh-pages.sh
+script: bash ./deploy.sh
 notifications:
   email: false
   slack:
