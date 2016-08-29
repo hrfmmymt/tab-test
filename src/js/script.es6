@@ -1,5 +1,7 @@
 $(() => {
 
+  console.log("test");
+
   const container = ".tabs",
         tabs = $("[role='tab']");
 
