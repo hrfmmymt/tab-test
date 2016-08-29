@@ -4,9 +4,8 @@ node_js:
 - '0.10'
 before_install:
 - npm install -g npm@latest-2
-script:
-- '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash
-  ./deploy.sh'
+after_success:
+  - bash deploy.sh
 notifications:
   slack:
     secure: fWbq7iIPMzaqAt3pBUFg7NLGXX2FwYT26h6KswOej8haVFH+fFDZ1ohGboBuST0WvhWA0xliahkIZ+vMYjPsXRN8Yv9C5U44Z5JsN3awR5D7rm4v50uzfy1xfgsWdtooHxDdXwOYunEkogblLZVQlQ+khAaDHgNiQVHYjAQ8hG3qTE76KXFNBBfo1Rvrpf7KUcrPHrw6nJuAScP9CD1fnodlgFSAV6oG8kKsLr2cgOwuJbURper1h6yZ34l8FS/RNupX7UAmKLXX0ly78tJ2EvVPsJ2sY0YJJRvblZH/Tn4kSQB7RXtmY2GbsqU63f09TZN2YWPs4TY38RrNa9y+v54qARq2LIbb+VsvnoxdEkiNpL9+s5kmLmq9gtitFaNh5yJoKwqTVXIJ0sQILp9byylw3lw1PBfTUKKs56Mrr30L7cBNiBFcfHEoH+owWhYekpQXTRNYsFX/uhH8j9mqcXVAoZMx2Qovsrae1IUkSgANl0fwxn3BnCOkuqyWfWFZhv71YaMXFKNkeKnVvPgiOEpb3hBTaa+GvBWbrrHSKwk08a6LG6L2qtspd2pOBtbwjrNRzlCF4VWAxUh/zzdL5ZzdM30xyfxU3S2BpQPK1M3GauhWnWYKMcEinUnXCs1/uffZtR8j03u5hNdaF6bjIBkQrVbNiwhMFgcS39yEwZQ=
