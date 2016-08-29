@@ -4,7 +4,7 @@ set -e
 git config user.email "hrfmmymt@gmail.com"
 git config user.name "hrfmmymt"
 
-git checkout gh-pages
+git init
 git add .
-git merge master
+git commit -m "Deploy to GitHub Pages"
 git push --force --quiet "https://${GH_TOKEN}@github.com/hrfmmymt/tab-test.git" master:gh-pages > /dev/null 2>&1
