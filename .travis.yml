@@ -1,11 +1,11 @@
 sudo: false
 language: node_js
 node_js:
-- '0.10'
+  - '0.10'
 before_install:
-- npm install -g npm@latest-2
+  - npm install -g npm@latest-2
 after_success:
-  - bash deploy.sh
+  - bash ./deploy.sh
 notifications:
   email: false
   slack:
