@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Accessible tabs ui test.">
+  <title>tab-test</title>
+  <link rel="stylesheet" href="dist/css/style.css">
+</head>
+<body>
+
+  <div class="tabs" id="tabs">
+    <ul class="tabs_list" role="tabs_list">
+      <li role="presentation"><a href="#section1" id="tab1" class="tab" role="tab" tabindex="0" aria-controls="section1" aria-selected="true">Home</a></li>
+      <li role="presentation"><a href="#section2" id="tab2" class="tab" role="tab" tabindex="-1" aria-controls="section2">About</a></li>
+      <li role="presentation"><a href="#section3" id="tab3" class="tab" role="tab" tabindex="-1" aria-controls="section3">Contact</a></li>
+      <li role="presentation"><a href="#section4" id="tab4" class="tab" role="tab" tabindex="-1" aria-controls="section4">Section 4</a></li>
+    </ul>
+
+    <div class="content">
+
+      <section id="section1" class="content__panel" aria-labelledby="tab1" role="tabpanel">
+        <h3 class="content__title">Home</h3>
+        <p>タブ UI を実装してみました。<br>要件は下記</p>
+        <ul>
+          <li>not レスポンシブ</li>
+          <li>Internet Explorer: 9+</li>
+          <li>WAI-ARIA 対応で、キーボード操作が可能であること</li>
+          <li>PostCSS</li>
+        </ul>
+        <p>なんとなく既存プロジェクトに導入できるような形にしてみたくて、割と現実的そうなブラウザ対応を取ることにしました。</p>
+        <p>WAI-ARIA は、やってみたかったのです。PC キーバインド設定するにあたっての JavaScript は Babel で実装できる環境まで作ったものの、結局 jQuery でササッと&#9786</p>
+        <p>PostCSS は、やりましょうという気運。実際使ったのは nested と simple-vars と calc.</p>
+      </section>
+
+      <section id="section2" class="content__panel" aria-labelledby="tab2" role="tabpanel" aria-hidden="true">
+        <h3 class="content__title">About</h3>
+        <div class="about" itemscope>
+          <img itemprop="image" alt="私が hrfmmymt だ" src="//pbs.twimg.com/profile_images/672293869120163840/7q4wxHvu.jpg" width="200">
+          <div class="about__description">
+            <p itemprop="name">Name : hrfmmymt</p>
+            <p itemprop="age">Age : 32</p>
+            <p itemprop="gender">Gender : Male</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section3" class="content__panel" aria-labelledby="tab3" role="tabpanel" aria-hidden="true">
+        <h3 class="content__title">Contact</h3>
+        <a href="//hrfmmymt.github.io/">http://hrfmmymt.github.io</a>
+      </section>
+
+      <section id="section4" class="content__panel" aria-labelledby="tab4" role="tabpanel" aria-hidden="true">
+        <h3 class="content__title">Tab4</h3>
+        <p>余ったアアアアアアア</p>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2016 <a href="http://hrfmmymt.github.io/">hrfmmymt</a></p>
+  </footer>
+
+  <script src="dist/js/jquery.min.js"></script>
+  <script src="dist/js/script.js"></script>
+</body>
+</html>
