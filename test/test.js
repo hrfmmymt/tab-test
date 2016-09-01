@@ -2,7 +2,7 @@
 import injectBrowser from "testium/mocha";
 import assert from "power-assert";
 
-describe("index.html", () => {
+describe("Test WAI-ARIA tabs UI", () => {
   before(injectBrowser());
 
   let browser;
