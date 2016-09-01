@@ -6,6 +6,7 @@ import cssnano from 'cssnano';
 import sourcemaps from 'gulp-sourcemaps';
 import babel from 'gulp-babel';
 import uglify from 'gulp-uglify';
+import eslint from "gulp-eslint";
 import sync from 'browser-sync';
 import autoprefixer from 'autoprefixer';
 import conventionalChangelog from 'gulp-conventional-changelog';
@@ -47,7 +48,7 @@ gulp.task('css', () => {
     .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('babel', () => {
+gulp.task('babel', ["lint"], () => {
   return gulp.src('./src/js/*.es6')
     .pipe(plumber({
       errorHandler: err => {
@@ -60,6 +61,13 @@ gulp.task('babel', () => {
     }))
     .pipe(uglify({preserveComments: 'some'}))
     .pipe(gulp.dest('./dist/js/'))
+});
+
+gulp.task("lint", () => {
+  return gulp.src("./src/js/*.es6")
+    .pipe(eslint({useEslintrc : true}))
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('changelog', () => {
