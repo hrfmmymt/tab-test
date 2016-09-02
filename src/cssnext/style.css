@@ -1,5 +1,5 @@
 :root {
-  --font-stack: 16px  Futura,Trebuchet MS,Arial,sans-serif;
+  --font-stack: 16px Futura, Trebuchet MS, Arial, sans-serif;
   --bg-color: #fff;
   --border-frame: 1px solid #333;
   --border-white: 1px solid #fff;
@@ -58,7 +58,7 @@ body {
   line-height: calc(var(--std-px-amount) * 2);
   letter-spacing: 1px;
   text-align: center;
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, .3);
   text-decoration: none;
 
   background: #eee;
@@ -131,7 +131,7 @@ body {
     opacity: 1;
     visibility: visible;
 
-    transition: all linear 0.1s;
+    transition: all linear .1s;
 
     &[aria-hidden="true"] {
       opacity: 0;
