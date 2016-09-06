@@ -2,9 +2,9 @@ sudo: false
 language: node_js
 node_js:
   - '0.10'
-# before_install:
-  # - npm install -g npm@latest-2
-# script: bash ./deploy.sh
+before_install:
+  - npm install -g gulp
+script: gulp test
 notifications:
   email: false
   slack:
