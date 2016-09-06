@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.babel.js",
-  "scripts": {
-    "start": "http-server",
-    "test": "mocha --compilers js:babel-register test/*.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hrfmmymt/tab-test.git"
