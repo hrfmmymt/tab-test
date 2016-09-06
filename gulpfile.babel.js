@@ -85,7 +85,7 @@ gulp.task("serve:test", function (callback) {
     port: 9100,
     open: false,
     server: { baseDir: ["./"] },
-    snippetOptions: { blacklist: ["/"] },
+    // snippetOptions: { blacklist: ["/"] },
     ui: false
   }, function() {
     callback();
