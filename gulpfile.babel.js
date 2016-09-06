@@ -99,8 +99,7 @@ gulp.task("test", ["serve:test"], function () {
   }, function (passed) {
     if (passed) {
       process.exit();
-    }
-    else {
+    } else {
       process.exit(1);
     }
   });
