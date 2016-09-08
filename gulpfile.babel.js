@@ -37,12 +37,11 @@ gulp.task('css', () => {
     .pipe(postcss([
       autoprefixer(),
       require('postcss-nested'),
-      require('postcss-simple-vars'),
+      require('postcss-custom-properties'),
       require('postcss-calc'),
       stylelint(),
       reporter({ clearMessages: true }),
       require('cssnano'),
-      require("postcss-cssnext")(),
     ]))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/css'));
