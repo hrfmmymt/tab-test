@@ -156,6 +156,7 @@ body {
 
   & ul {
     padding-left: var(--std-px-amount);
+    margin: 1em 0;
   }
 
   & a {
