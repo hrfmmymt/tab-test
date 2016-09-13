@@ -26,7 +26,7 @@ gulp.task('reload', () => {
 });
 
 gulp.task('css', () => {
-  return gulp.src('./src/cssnext/*.css')
+  return gulp.src('./src/css/*.css')
     .pipe(sourcemaps.init())
     .pipe(plumber({
       errorHandler: err => {
@@ -78,7 +78,7 @@ gulp.task('changelog', () => {
 });
 
 gulp.task('w', ['build', 'server'], () => {
-  gulp.watch('./src/cssnext/*.css', ['css']);
+  gulp.watch('./src/css/*.css', ['css']);
   gulp.watch('./src/js/*.es6', ['babel']);
   gulp.watch('./*.html', ['reload']);
   gulp.watch('./dist/**/**.css', ['reload']);
